@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+
+public class Order {
+
+    ArrayList<String> items = new ArrayList<>();
+    int total = 0;
+
+    public void addItem(Food food, int quantity) {
+
+        int cost = food.price * quantity;
+
+        items.add(food.name + " x " + quantity + " = ₹" + cost);
+
+        total += cost;
+    }
+
+    public void showOrder() {
+
+        System.out.println("\n----- Order Summary -----");
+
+        for(String item : items) {
+            System.out.println(item);
+        }
+
+        System.out.println("-------------------------");
+        System.out.println("Total Bill = ₹" + total);
+    }
+}
