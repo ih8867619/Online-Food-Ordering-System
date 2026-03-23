@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class FoodOrderMain {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Food pizza = new Food("Pizza",200);
+        Food burger = new Food("Burger",120);
+        Food sandwich = new Food("Sandwich",100);
+        Food pasta = new Food("Pasta",150);
+
+        Order order = new Order();
+
+        int choice;
+
+        do {
+
+            System.out.println("\n===== ONLINE FOOD ORDERING SYSTEM =====");
+            System.out.println("1. Pizza - ₹200");
+            System.out.println("2. Burger - ₹120");
+            System.out.println("3. Sandwich - ₹100");
+            System.out.println("4. Pasta - ₹150");
+            System.out.println("5. Show Bill & Exit");
+
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            if(choice >=1 && choice <=4){
+
+                System.out.print("Enter quantity: ");
+                int qty = sc.nextInt();
+
+                if(choice==1) order.addItem(pizza,qty);
+                if(choice==2) order.addItem(burger,qty);
+                if(choice==3) order.addItem(sandwich,qty);
+                if(choice==4) order.addItem(pasta,qty);
+
+                System.out.println("Item added successfully!");
+
+            }
+
+        } while(choice != 5);
+
+        order.showOrder();
+
+        sc.close();
+    }
+}
